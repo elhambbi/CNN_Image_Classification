@@ -1,2 +1,2 @@
-# CNN_Image_Classification
+# CNN_Image_Classification - TinyVGG architecture
 
