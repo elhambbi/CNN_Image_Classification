@@ -1,3 +1,2 @@
-# CNN_Image_Classification 
-## TinyVGG architecture
-
+# CNN 
+## Image classification using TinyVGG architecture
