@@ -1,4 +1,6 @@
 tmp.py
 Deleteme
 .DS_Store
-data/
+CNN_Image_classification.ipynb
+__pycache__/
+data/FashionMNIST/
