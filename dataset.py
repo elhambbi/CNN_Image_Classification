@@ -1,14 +1,7 @@
 import torch
-from torch import nn
 import torchvision
 from torchvision import datasets   # to impot FashionMNist images
-from torchvision import transforms
 from torchvision.transforms import ToTensor
-from torch.utils.data import DataLoader
-import matplotlib.pyplot as plt
-from tqdm.auto import tqdm   # for progress bar
-from timeit import default_timer as timer 
-import random
 import os
 
 print(torch.__version__)
