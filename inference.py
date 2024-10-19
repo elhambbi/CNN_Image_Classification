@@ -59,7 +59,8 @@ if __name__== "__main__":
     for sample, label in random.sample(list(test_data), k=6):   # test_data is not a dataloader
         test_samples.append(sample)
         test_labels.append(label)
-
+    gt_class_names = [class_names[test_labels[i]] for i in range(len(test_samples))]
+    print("\nTrue label names:\n\n", gt_class_names)
     # make predictions
     pred_probs = make_predictions(model= loaded_model,
                                 data= test_samples,

@@ -7,9 +7,14 @@ This application implements imgae classification on 6 randomly selected images f
 
 """
 
+True label names:
+
+['Pullover', 'Pullover', 'T-shirt/top', 'Trouser', 'Bag', 'Sneaker']
+
+
 Predicted label names:
 
-['Sandal', 'Coat', 'Sneaker', 'Shirt', 'Dress', 'Trouser']
+['Pullover', 'Coat', 'T-shirt/top', 'Trouser', 'Bag', 'Sneaker']
 
 """
 
@@ -20,4 +25,4 @@ To run using docker:
 
 Alternatively, to train and test the model from the scratch:
 - `python train.py`
-- `python inference.py --text_path data/fashion_mnist_test.pt`
+- `python inference.py --test_path data/fashion_mnist_test.pt`
