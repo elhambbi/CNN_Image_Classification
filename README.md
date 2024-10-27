@@ -18,11 +18,15 @@ Predicted label names:
 
 """
 
+To do inference on the already trained model:
+- `python inference.py --test_path data/fashion_mnist_test.pt`
+ 
 
-To run using docker:
-- `docker build -t cnnimg .` 
-- `docker run -it --rm cnnimg`
-
-Alternatively, to train and test the model from the scratch:
+Alternatively, to train the model from the scratch and do inference:
 - `python train.py`
 - `python inference.py --test_path data/fashion_mnist_test.pt`
+
+
+Or to create and run docker container:
+- `docker build -t cnnimg .` 
+- `docker run -it --rm cnnimg`
