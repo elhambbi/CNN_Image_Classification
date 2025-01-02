@@ -48,7 +48,7 @@ if __name__ == "__main__":
         train_data = torch.load(train_data_path)
         class_names = train_data.classes
     except Exception as e:
-        print(f"Error loading training data: {e}")
+        print(f"Error with training data: {e}")
         exit(1)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -63,7 +63,7 @@ if __name__ == "__main__":
         loaded_model.to(device)
         loaded_model.eval()
     except Exception as e:
-        print(f"Error loading model: {e}")
+        print(f"Error loading saved model: {e}")
         exit(1)
 
     # Load the test data

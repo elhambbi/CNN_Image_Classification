@@ -188,7 +188,8 @@ if __name__ == "__main__":
         class_names = train_data.classes
         class_to_idx = train_data.class_to_idx
     except Exception as e:
-        print(f"Error loading training datasets: {e}")
+        print(f"Error with training dataset: {e}")
+        exit(1)
 
     try:
         test_data_path = os.path.join(data_dir, 'fashion_mnist_test.pt')
@@ -196,7 +197,8 @@ if __name__ == "__main__":
             raise FileNotFoundError(f"Test data file not found at {test_data_path}")
         test_data = torch.load(test_data_path)
     except Exception as e:
-        print(f"Error loading test datasets: {e}")
+        print(f"Error loading test dataset: {e}")
+        exit(1)
 
     # create Dataloader
     BATCH_SIZE = 32
@@ -262,5 +264,4 @@ if __name__ == "__main__":
         accuracy_fn=accuracy_fn,
         device=device
     )
-
     print("Trained model results:\n", results)
