@@ -180,10 +180,23 @@ if __name__ == "__main__":
 
     # load the saved training and test datasets
     data_dir = "data"
-    train_data = torch.load(os.path.join(data_dir, 'fashion_mnist_train.pt'))
-    test_data = torch.load(os.path.join(data_dir, 'fashion_mnist_test.pt'))
-    class_names = train_data.classes
-    class_to_idx = train_data.class_to_idx
+    try:
+        train_data_path = os.path.join(data_dir, 'fashion_mnist_train.pt')
+        if not os.path.exists(train_data_path):
+            raise FileNotFoundError(f"Training data file not found at {train_data_path}")
+        train_data = torch.load(train_data_path)
+        class_names = train_data.classes
+        class_to_idx = train_data.class_to_idx
+    except Exception as e:
+        print(f"Error loading training datasets: {e}")
+
+    try:
+        test_data_path = os.path.join(data_dir, 'fashion_mnist_test.pt')
+        if not os.path.exists(test_data_path):
+            raise FileNotFoundError(f"Test data file not found at {test_data_path}")
+        test_data = torch.load(test_data_path)
+    except Exception as e:
+        print(f"Error loading test datasets: {e}")
 
     # create Dataloader
     BATCH_SIZE = 32
@@ -199,8 +212,7 @@ if __name__ == "__main__":
 
     # cpu or gpu
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"device is {device}")
-
+    print(f"Device is {device}")
 
     #creating the model with 10 neurons for hidden layers
     torch.manual_seed(42)
@@ -233,12 +245,13 @@ if __name__ == "__main__":
     print_train_time(start=start_time, end=end_time,
                     device=str(next(model1.parameters()).device))
 
-
     # save the last model after all epoches
-    torch.save(model1, "cnn_model.pt")
-    # torch.save(model1.state_dict(), "cnn_model_weights.pth")  # to only save model parameters (not architecture)
-    print("Final model saved")
-
+    try:
+        torch.save(model1, "cnn_model.pt")
+        # torch.save(model1.state_dict(), "cnn_model_weights.pth")  # to only save model parameters (not architecture)
+        print("Final model saved")
+    except Exception as e:
+        print(f"Error saving model: {e} ")
 
     # results
     results = eval_model(
