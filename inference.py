@@ -39,7 +39,7 @@ if __name__ == "__main__":
         print(f"Error parsing arguments: {e}")
         exit(1)
     
-    # Load training data to get class names
+    # Load training data to get class names or define them manually (they are fixed)
     try:
         data_dir = "data"
         train_data_path = os.path.join(data_dir, 'fashion_mnist_train.pt')

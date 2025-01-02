@@ -252,6 +252,7 @@ if __name__ == "__main__":
         print("Final model saved")
     except Exception as e:
         print(f"Error saving model: {e} ")
+        exit(1)
 
     # results
     results = eval_model(
